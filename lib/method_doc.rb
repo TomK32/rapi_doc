@@ -1,8 +1,9 @@
+#encoding: utf-8
 module RapiDoc
   # This class holds methods about a doc.
   class MethodDoc
     attr_accessor :scope, :content, :request, :response, :code, :outputs, :variables, :method_order
-    
+
     def initialize(type, order)
       @scope = type
       @method_order = order
@@ -13,8 +14,8 @@ module RapiDoc
       @request = ""
       @response = ""
     end
-    
-    
+
+
     def add_variable(name, value)
       if name == "param"
         @variables << value

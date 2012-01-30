@@ -1,3 +1,4 @@
+#encoding: utf-8
 module RapiDoc
   # This class holds the methods that parse the doc
   class DocParser

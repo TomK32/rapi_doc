@@ -1,13 +1,14 @@
+#encoding: utf-8
 require 'method_doc'
 require 'doc_parser'
 
 module RapiDoc
-  # ResourceDoc holds the information a resource contains. It parses the class header and also the 
+  # ResourceDoc holds the information a resource contains. It parses the class header and also the
   # method documentation, which will be contained in MethodDoc.
   class ResourceDoc
-    
+
     attr_reader :name, :resource_location, :controller_name, :function_blocks, :class_block
-    
+
     # Initializes ResourceDoc.
     def initialize(name, resource_location, controller_name, options = {})
       @name = name
@@ -16,26 +17,26 @@ module RapiDoc
       @function_blocks = []
       @method_codes = []
       @header_code = ""
-      
+
       unless File.exist?(controller_location)
         raise "Unable to find or open controller. Make sure it's set properly in config/rapidoc/config.yml File: #{controller_location}"
       end
     end
-    
+
     # returns the location of the controller that is to be parsed
     def controller_location
       # @resource_location
       "#{::Rails.root.to_s}/app/controllers/#{controller_name}"
     end
-    
+
     def get_binding
       binding
     end
-    
+
     # parse the controller
     def parse_apidoc!
       line_no = 0
-      
+
       parser = DocParser.new
       order = 1
       File.open(controller_location).each do |line|
@@ -63,10 +64,10 @@ module RapiDoc
         else
           parser.parse(line)
         end
-        
+
         line_no += 1
       end
-      
+
       puts "Generated #{name}.html"
     end
 

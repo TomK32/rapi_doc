@@ -1,3 +1,4 @@
+#encoding: utf-8
 module RapiDoc
   class DocUtil
     # print some  erb code to a template
