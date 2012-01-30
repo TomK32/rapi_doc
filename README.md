@@ -8,17 +8,18 @@ Currently does not read routes.rb and requires manual entry of routes
 Installation
 ============
 
-`gem install rapi_doc`
+Add it to your Gemfile
+
+`gem 'rapi_doc', :git => 'git://github.com/joelcogen/rapi_doc.git'`
 
 Usage
 =====
 
 Run `rake rapi_doc:setup` to generate config and layout files.
 
-Modify config file by adding your controllers, e.g.:
+Modify config file (config/rapi_doc/config.yml) by adding your controllers, e.g.:
 
     books:
-      location: "/books"
       controller_name: "books_controller.rb"
 
 Then invoke the generation by calling:
@@ -27,6 +28,8 @@ Then invoke the generation by calling:
 
 Documentation Example
 ---------------------
+
+Add this (commented) to your controllers to have the documentation generated
 
     # =begin apidoc
     # url:: /books
@@ -63,14 +66,15 @@ Documentation Example
     # Get a list of all books in the system with pagination.  Defaults to 10 per page
     # =end
 
-    
+
 Layout
 ------
 
-Documentation layout is located at `config/rapi_doc/layout.html.erb`.
+You can edit some of the views located at `config/rapi_doc/`.
 
 Credit
 ======
 
 * Based on RAPI Doc by Jaap van der Meer found here: http://code.google.com/p/rapidoc/
 * https://github.com/sabman/rapi_doc
+* https://github.com/elc/rapi_doc
