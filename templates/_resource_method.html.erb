@@ -1,14 +1,14 @@
-<div id="method_<%=@method_order%>">
+<div id="method_<%= @method_order %>">
 
   <%
     str = "<span id='http_verb'>#{@method}</span>"
   %>
-  <p class='description'><strong>Description:</strong> <%=@content %></p>
+  <p class='description'><strong>Description:</strong> <%= @content %></p>
 
   <h2><%=str %><%=@url %></h2>
 
   <% if @access %>
-    <strong>Access:</strong> <%=@access %><br />
+    <strong>Access:</strong> <%= @access %><br />
   <% end %>
 
   <% if @return %>

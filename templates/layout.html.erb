@@ -52,19 +52,15 @@
   <body>
     <div class="content">
       <div id="navigation">
-        <ul class="main">
-          <li><a href="/apidoc/main.html">&laquo; Back to index</a></li>
-        </ul>
+        <a href="/apidoc/main.html">&laquo; Back to index</a>
       </div>
 
-      <hr />
-
-      <h1><%= @name %></h1>
+      <h1><%= @name.capitalize %></h1>
       <%= @header_code %>
 
       <% @method_codes.each do |mc| %>
-        <%= mc %>
         <hr />
+        <%= mc %>
       <% end %>
     </div>
   </body>
