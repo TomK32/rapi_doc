@@ -59,10 +59,12 @@
 
       <hr />
 
-      <%=@header_code %>
+      <h1><%= @name %></h1>
+      <%= @header_code %>
 
       <% @method_codes.each do |mc| %>
-        <%=mc %>
+        <%= mc %>
+        <hr />
       <% end %>
     </div>
   </body>
