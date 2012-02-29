@@ -48,7 +48,7 @@ module RapiDoc
 
     # strip the '#' on the line
     def strip_line(line)
-      line[1..line.length]
+      line.gsub(/^#?/, '')
     end
   end
 end
