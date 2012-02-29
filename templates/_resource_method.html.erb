@@ -34,7 +34,7 @@
       <% @outputs.each do |output| %>
         <% output_format = output.keys.first %>
         <div class="<%= (output == @outputs.first)? 'active' : '' %>" id='<%= "#{output.keys.first}_#{@method_order}" %>'>
-          <pre class="prettyprint" ><%= output[output_format] %></pre>
+          <pre><code class="prettyprint" ><%= output[output_format] %></code></pre>
         </div>
       <% end %>
     </div>
@@ -43,12 +43,12 @@
 
   <% unless @request.blank? %>
     <strong>Request:</strong>
-    <pre class="code"><code><%= @request %></code></pre>
+    <pre><code><%= ERB::Util.html_escape(@request) %></code></pre>
   <% end %>
 
   <% unless @response.blank? %>
     <strong>Response:</strong>
-    <pre class="code"><code><%= @response %></code></pre>
+    <pre><code><%= ERB::Util.html_escape(@response) %></code></pre>
   <% end %>
 
 </div>
