@@ -10,6 +10,14 @@ module RapiDoc
     def template_dir
       File.join(File.dirname(__FILE__), '/../templates')
     end
+    
+    def resource_method_file(location)
+      File.join(find_location(location), '_resource_method.html.erb')
+    end
+    
+    def resource_header_file(location)
+      File.join(find_location(location), '_resource_header.html.erb')
+    end
 
     def config_file(location)
       File.join(find_location(location), 'config.yml')
