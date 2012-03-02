@@ -87,15 +87,13 @@ module RapiDoc
     end
 
     def get_parsed_header
-      template = ""
-      File.open(File.join(File.dirname(__FILE__), '..', 'templates', '_resource_header.html.erb')).each { |line| template << line }
-      ERB.new(template).result(@class_block.get_binding)
+      template = File.read(File.join(find_location(:target), '_resource_header.html.erb'))
+      ERB.new(template, nil, '-').result(@class_block.get_binding)
     end
 
     def get_parsed_method(method_block, method_order)
-      template = ""
-      File.open(File.join(File.dirname(__FILE__), '..', 'templates', '_resource_method.html.erb')).each { |line| template << line }
-      return ERB.new(template).result(method_block.get_binding)
+      template = File.read(File.join(find_location(:target), '_resource_method.html.erb'))
+      return ERB.new(template, nil, '-').result(method_block.get_binding)
     end
 
   end
