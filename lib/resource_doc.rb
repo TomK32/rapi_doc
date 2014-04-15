@@ -57,7 +57,7 @@ module RapiDoc
             parser.reset_current_scope_and_api_block
             order += 1
           end
-        when line =~ /class/
+        when line =~ /class[$\s]/
           parser.in_class = true
         when line =~ /::response-end::/, line =~ /::request-end::/, line =~ /::output-end::/
           parser.current_scope = :function
