@@ -50,7 +50,7 @@ module RapiDoc
       FileUtils.cp main_file(:target), target_folder + 'main.html'
 
       Dir.new(temp_dir).each do |d|
-        if d =~ /^[a-zA-Z]+\.(html|css)$/ # Only want to copy over the .html files, not the .erb templates
+        if d =~ /^[a-zA-Z_\-]+\.(html|css)$/ # Only want to copy over the .html files, not the .erb templates
           FileUtils.cp  File.join(temp_dir + d), target_folder + d
         end
 
